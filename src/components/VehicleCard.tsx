@@ -134,8 +134,12 @@ export function VehicleCard({ vehicle, onEditDetails, onSetMapping, onSetCalenda
                     value={fleetId}
                     onChange={(e) => setFleetId(e.target.value)}
                     aria-invalid={errors?.fleetId ? true : undefined}
+                    aria-describedby="edit-fleet-id-hint"
                   />
                   {errors?.fleetId && <p className="field-error">{errors.fleetId}</p>}
+                  <p className="hint" id="edit-fleet-id-hint">
+                    Your own reference for this car, such as a plate number or fleet number.
+                  </p>
                 </div>
                 <div className="row">
                   <button type="submit" className="btn btn-primary">
@@ -188,8 +192,11 @@ export function VehicleCard({ vehicle, onEditDetails, onSetMapping, onSetCalenda
                     onChange={(e) => setMapping(e.target.value)}
                     placeholder="VEH-205"
                     aria-invalid={errors?.externalId ? true : undefined}
-                    aria-describedby={errors?.externalId ? "edit-external-id-error" : undefined}
+                    aria-describedby={errors?.externalId ? "edit-external-id-error edit-external-id-hint" : "edit-external-id-hint"}
                   />
+                  <p className="hint" id="edit-external-id-hint">
+                    Copy this from the vehicle's listing on the other platform (for example Turo).
+                  </p>
                   {errors?.externalId && (
                     <p className="field-error" id="edit-external-id-error">
                       {errors.externalId}

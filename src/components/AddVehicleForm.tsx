@@ -49,7 +49,7 @@ export function AddVehicleForm({ onAdd }: Props) {
             onChange={set("name")}
             placeholder="Toyota Corolla"
             aria-invalid={errors?.name ? true : undefined}
-            aria-describedby={errors?.name ? "vehicle-name-error" : undefined}
+            aria-describedby={errors?.name ? "vehicle-name-error vehicle-name-hint" : "vehicle-name-hint"}
             autoComplete="off"
           />
           {errors?.name && (
@@ -57,6 +57,9 @@ export function AddVehicleForm({ onAdd }: Props) {
               {errors.name}
             </p>
           )}
+          <p className="hint" id="vehicle-name-hint">
+            The make and model, so you can recognise the car in your list.
+          </p>
         </div>
 
         <div className="field">
@@ -67,7 +70,7 @@ export function AddVehicleForm({ onAdd }: Props) {
             onChange={set("fleetId")}
             placeholder="CAR-102"
             aria-invalid={errors?.fleetId ? true : undefined}
-            aria-describedby={errors?.fleetId ? "fleet-id-error" : undefined}
+            aria-describedby={errors?.fleetId ? "fleet-id-error fleet-id-hint" : "fleet-id-hint"}
             autoComplete="off"
           />
           {errors?.fleetId && (
@@ -75,6 +78,10 @@ export function AddVehicleForm({ onAdd }: Props) {
               {errors.fleetId}
             </p>
           )}
+          <p className="hint" id="fleet-id-hint">
+            Your own reference for this car, such as a plate number or fleet number. You choose it, and each vehicle
+            needs a different one.
+          </p>
         </div>
 
         <div className="field">
@@ -87,7 +94,7 @@ export function AddVehicleForm({ onAdd }: Props) {
             onChange={set("externalId")}
             placeholder="VEH-205"
             aria-invalid={errors?.externalId ? true : undefined}
-            aria-describedby={errors?.externalId ? "external-id-error" : "external-id-hint"}
+            aria-describedby={errors?.externalId ? "external-id-error external-id-hint" : "external-id-hint"}
             autoComplete="off"
           />
           {errors?.externalId && (
@@ -96,7 +103,8 @@ export function AddVehicleForm({ onAdd }: Props) {
             </p>
           )}
           <p className="hint" id="external-id-hint">
-            Leave empty if you do not have it yet. The mapping check stays incomplete until it is added.
+            The ID this car has on the other platform (for example its Turo listing). Copy it from that listing. Leave
+            it empty if you do not have it yet; the mapping check stays incomplete until it is added.
           </p>
         </div>
 
